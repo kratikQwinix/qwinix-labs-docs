@@ -5,21 +5,20 @@ date:   2015-09-17 12:53:31
 categories: docker part-1
 ---
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+#Containers
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+Containers are basically light weight VM. But unlike traditional virtualization, they do not require an emulation layer to be run on but can use the Operating system's normal system call interface which reduces overhead and allows a large number of containers to be run on a host.
 
-Jekyll also offers powerful support for code snippets:
+Using docker containers can be built very fast.
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+1.Containers 
+  * have their own process space.
+  * have their own network interface.
+  * can run as root.
+  * share the kernel with the host.
 
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+This means that Containers are Isolated processes and for isolation they rely on two major kernel features which are namespaces and controlgroups.
+
 
 <a href="introduction-to-docker.html"><<Introduction</a> 
 <a style = "float:right" href="images.html">Images>></a> 
