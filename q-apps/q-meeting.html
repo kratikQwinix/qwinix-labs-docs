@@ -1,0 +1,20 @@
+---
+layout: q-apps
+---
+
+<div class="home">
+
+  <h1 class="page-heading">Q-Meeting</h1>
+
+  {% for post in site.categories.q-meeting %}
+  	<div class="row">
+  		<div class="col-md-2">
+  			<div class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</div>
+  		</div>
+  		<div class="col-md-10">
+  			<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+  		</div>
+  	</div>
+  {% endfor %}
+
+</div>
