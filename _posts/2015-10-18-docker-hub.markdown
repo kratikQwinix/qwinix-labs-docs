@@ -1,8 +1,7 @@
 ---
 layout: topics
-title:  "Introduction to Docker"
-next: "Containers"
-date:   2015-09-17 12:53:32
+title:  "Docker Hub"
+date:   2015-09-17 12:53:29
 categories: docker part-1
 ---
 
@@ -22,8 +21,8 @@ print_hi('Tom')
 
 Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
 
-<a href="containers.html" style = "float:right">Containers>></a> 
-
+<a href="images.html"><<Images</a> 
+<a style = "float:right" href="dockerfile.html">Dockerfile>></a> 
 
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
