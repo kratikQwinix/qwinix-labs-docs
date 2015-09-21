@@ -2,8 +2,8 @@
 title: Qwinix Labs
 email: kvarma@qwinixtech.com
 description: How we work
-baseurl: "qwinix-labs-docs" # the subpath of your site, e.g. /blog/
-url: "qwinix.github.io" # the base hostname & protocol for your site
+baseurl: /qwinix-labs-docs # the subpath of your site, e.g. /blog/
+url: qwinix.github.io # the base hostname & protocol for your site
 twitter_username: qwinix
 github_username:  qwinix
 
