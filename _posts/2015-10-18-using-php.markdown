@@ -11,6 +11,8 @@ A simple PHP page can be dockerized in three simple steps:
 2. Build an image of the container from the Dockefile.
 3. Run the image and spin up a running container.
 
+**Prerequesites**
+
 To begin with lets first create a simple PHP page
 
 {% highlight php %}
@@ -18,6 +20,25 @@ To begin with lets first create a simple PHP page
   echo "Hello World";
 ?>
 {% endhighlight %}
+
+Now, lets create a config file of apache
+
+	<VirtualHost *:80>
+	  ServerAdmin me@mydomain.com
+	  DocumentRoot /var/www/html
+
+	  <Directory /var/www/html/>
+	      Options Indexes FollowSymLinks MultiViews
+	      AllowOverride All
+	      Order deny,allow
+	      Allow from all
+	  </Directory>
+
+	  ErrorLog ${APACHE_LOG_DIR}/error.log
+	  CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+	</VirtualHost>
+
 
 Now lets begin with the dockerizing.
 
@@ -61,30 +82,37 @@ CMD /usr/sbin/apache2ctl -D FOREGROUND
 
 Now save the file as 'Dockerfile' and lets go through the Dockerfile line wise.
 
-	# Pull an ubuntu 14.04v image
-	FROM ubuntu:14.04
+{% highlight ruby %}
+
+# Pull an ubuntu 14.04v image
+FROM ubuntu:14.04
+
+{% endhighlight %}
 
 This is pretty straight forward. Dockerfile tells docker to pull out an image of ubuntu 14.04.
 
 The next set of lines :
+{% highlight ruby%}
 
-	# Install apache, PHP, and supplimentary programs. curl and lynx-cur are for debugging the container.
-	RUN DEBIAN_FRONTEND=noninteractive apt-get -y install apache2 libapache2-mod-php5 php5-mysql php5-gd php-pear php-apc php5-curl curl lynx-cur
+# Install apache, PHP, and supplimentary programs. curl and lynx-cur are for debugging the container.
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install apache2 libapache2-mod-php5 php5-mysql php5-gd php-pear php-apc php5-curl curl lynx-cur
 
-	# Enable apache mods.
-	RUN a2enmod php5
-	RUN a2enmod rewrite
+# Enable apache mods.
+RUN a2enmod php5
+RUN a2enmod rewrite
 
-	# Update the PHP.ini file, enable <? ?> tags and quieten logging.
-	RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php5/apache2/php.ini
-	RUN sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/" /etc/php5/apache2/php.ini
+# Update the PHP.ini file, enable <? ?> tags and quieten logging.
+RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php5/apache2/php.ini
+RUN sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/" /etc/php5/apache2/php.ini
 
-	# Manually set up the apache environment variables
-	ENV APACHE_RUN_USER www-data
-	ENV APACHE_RUN_GROUP www-data
-	ENV APACHE_LOG_DIR /var/log/apache2
-	ENV APACHE_LOCK_DIR /var/lock/apache2
-	ENV APACHE_PID_FILE /var/run/apache2.pid
+# Manually set up the apache environment variables
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+ENV APACHE_LOCK_DIR /var/lock/apache2
+ENV APACHE_PID_FILE /var/run/apache2.pid
+
+{% endhighlight %}
 
 Here the **RUN** keyword runs the command which have been specified on the ubuntu image.
 
@@ -94,13 +122,24 @@ Here the **RUN** keyword runs the command which have been specified on the ubunt
   * cURL
   * MySQL connection libraries
 2. We enable the REWRITE and PHP modules on apache
-3. Set a few things to enable veiwing logs and debugging
+3. Set a few things to enable viewing logs and debugging
 4. And set up the necessary environment variables of apache
 
-{% highlight ruby%}
-{% endhighlight%}
+{% highlight ruby %}
+# Expose a port to be mapped to
+EXPOSE 80
 
-	
+# Point the container's document root to your present working directory on your local machine
+ADD $PWD /var/www/html
+
+# Update the default apache site with the config we created.
+ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
+
+# By default, simply start apache.
+CMD /usr/sbin/apache2ctl -D FOREGROUND
+{% endhighlight %}
+
+The above line tells the image to expose the port 80 on the ubuntu image and start the apache service with the configurations mentioned earlier.
 
 **[Jump To Next Step][part-2]**
 
