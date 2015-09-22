@@ -5,22 +5,40 @@ next: "Containers"
 date:   2015-09-17 12:53:32
 categories: docker part-1
 ---
+##Getting started with docker
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+### 1. Installation on Ubunutu
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+There are no prerequistes for ubuntu 14.04 and higher.
 
-Jekyll also offers powerful support for code snippets:
+1. Log into ubuntu as a user with **sudo** priveleges.
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+2. Verify if you have curl installed on your system.
 
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+	{% highlight sh %}
+	$ which curl
+	{% endhighlight %}
+
+If curl isn't installed, install it wiht the following commands
+
+	{% highlight sh %}
+	$ sudo apt-get update
+$ sudo apt-get install curl
+	{% endhighlight %}
+
+3. Get the latest Docker package.
+
+	{% highlight sh %}
+	$ curl -sSL https://get.docker.com/gpg | sudo apt-key add -
+	{% endhighlight %}
+
+4. Verify docker is installed correctly
+
+	{% highlight sh %}
+	$ sudo docker run hello-world
+	{% endhighlight %}
+
+
 
 <a href="containers.html" style = "float:right">Containers>></a> 
 
