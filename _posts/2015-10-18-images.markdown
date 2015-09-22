@@ -1,120 +1,29 @@
 ---
 layout: topics
-title:  "Introduction to Docker Images"
+title:  "Images"
 date:   2015-09-17 12:53:30
 categories: docker part-1
 ---
 
-A Docker image is made up of filesystems layered over each other. At the base is a boot filesystem, bootfs , which resembles the typical Linux/Unix boot filesystem. A Docker user will probably never interact with the boot filesystem. Indeed, when a container has booted, it is moved into memory, and the boot filesystem is unmounted to free up the RAM used by the initrd disk image.
+You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-Docker next layers a root filesystem, rootfs , on top of the boot filesystem. This
- rootfs can be one or more operating systems (e.g., a Debian or Ubuntu filesys-
-tem).In Docker, the rootfs stays in read-only mode and Docker takes advantage of [union mount][un] to add more read-only filesystems on top of rootfs.
+To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
-Docker calls each of these filesystems images. Images can be layered on top of
- one another. The image below is called the parent image and you can traverse
- each layer until you reach the bottom of the image stack where the final image
- is called the base image. Finally, when a container is launched from an image,
- Docker mounts a read-write filesystem on top of any layers below. This is where
- whatever processes we want our Docker container to run will execute.
- 
-<html>
- <head>
- 	<title></title>
- </head>
- <body>
-    <img style="padding-left:200px" src="/images/docker/docker-image.png" width="800" height="300">
- </body>
- </html>
+Jekyll also offers powerful support for code snippets:
 
-<hr>
-
-#### 1.Listing Docker Images
-
-{% highlight sh %}
-$ sudo docker images
-{% endhighlight %}
-The command lists all the images in the local machine.
- <html>
- <body>
-    <img  src="/images/docker/docker-images.png" width="1000" height="300">
- </body></html>
-
- <hr>
-
-#### 2.Pulling Docker Images from DOCKER-HUB
-
- Docker Images can also be pulled from [DOCKER_HUB][dh] registry.
- {% highlight sh %}
-$ sudo docker pull ubuntu
-{% endhighlight %}
-This command pulls the **ubuntu** image from dockerhub
-<html>
- <body>
-    <img  src="/images/docker/pulling-docker-images.png" height="300">
- </body></html>
-
- <hr>
-
-#### 3.Image tags 
-Each image inside the repository is identified by what Docker calls **tags**. Each image is being listed by the tags applied to it, so, for example, **12.04** , **12.10** , **quantal** , or **precise** and so on. Each tag marks together a series of image layers that represent a specific image 
-(e.g., the 12.04 tag collects together all the layers
-of the **Ubuntu 12.04** image). This allows us to store more than one image inside a repository. 
-
-<hr>
-
-#### 4.Running the containers
-{% highlight sh %}
-$ sudo docker run -t -i --name new_container ubuntu /bin/bash
+{% highlight ruby %}
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
-This command runs the container using ubuntu image and runs the command /bin/bash
-<html>
- <body>
-    <img  src="/images/docker/running-containers.png" height="300">
- </body></html>
-
- There are two types of repositories: **user repositories**, which contain images contributed by Docker users, and **top-level repositories**, which are controlled by the people behind Docker.
-
-<hr>
-
-#### 5.Searching images
-{% highlight sh %}
-$ sudo docker search puppet
-{% endhighlight %}
-It’ll search images and return:
-  
-  * Repository names
-  * Image descriptions
-  * Stars - these measure the popularity of an image
-  * Official - an image managed by the upstream developer (e.g., the fedora image managed by
-  the Fedora team)       
-  * Automated - an image built by the Docker Hub’s Automated Build process.
-
-<hr>
-
-#### 6.Pulling a particular image
-{% highlight sh %}
-$ sudo docker pull jamtur01/puppetmaster
-{% endhighlight %}
-
-Pulls jamtur01/puppetmaster image
-
-<hr>
-
-#### 7.Building Docker Images
-We can create our own Docker images using two methods:
-
-  * Via the **docker commit** command (**NOT Recommended**)
-  * Via the **docker build** command with [Dockerfile][dfile]
-
-
-
-[dh]: https://hub.docker.com/
-[dfile]: dockerfile.html
+Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
 
 <a href="containers.html"><<Containers</a> 
-<a style = "float:right" href="docker-hub.html">DockerHub>></a> 
+<a style = "float:right" href="docker-hub.html">Docker Hub>></a> 
 
-
-[un]: http://www.thegeekstuff.com/2013/05/linux-aufs/ 
+[jekyll]:      http://jekyllrb.com
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-help]: https://github.com/jekyll/jekyll-help
