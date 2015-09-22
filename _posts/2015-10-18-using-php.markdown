@@ -5,11 +5,15 @@ date:   2015-09-17 12:53:32
 categories: docker part-2
 ---
 
+Before proceeding further you are expected to know the basics of docker
+
+**[Jump To Docker Basics][docker-basics]**
+
 A simple PHP page can be dockerized in three simple steps:
 
-1. Create a Dockerfile (With a caps D).
-2. Build an image of the container from the Dockefile.
-3. Run the image and spin up a running container.
+1. Create a Dockerfile.
+2. Build an image of the container from the Dockerfile.
+3. Run the image and spin up a container.
 
 **Prerequesites**
 
@@ -20,6 +24,9 @@ To begin with lets first create a simple PHP page
   echo "Hello World";
 ?>
 {% endhighlight %}
+
+
+Save the file as **index.php**
 
 Now, lets create a config file of apache
 
@@ -39,6 +46,7 @@ Now, lets create a config file of apache
 
 	</VirtualHost>
 
+Save the config file as **apache-config.conf** and save it in the same directory as the PHP file.
 
 Now lets begin with the dockerizing.
 
@@ -80,7 +88,7 @@ CMD /usr/sbin/apache2ctl -D FOREGROUND
 
 {% endhighlight %}
 
-Now save the file as 'Dockerfile' and lets go through the Dockerfile line wise.
+Save the file as 'Dockerfile' in the same directory as the other two files. And lets go through the Dockerfile line wise.
 
 {% highlight ruby %}
 
@@ -145,7 +153,8 @@ The above line tells the image to expose the port 80 on the ubuntu image and sta
 
 Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
 
-[part-2]:      using-php-2.html
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
+[docker-basics]: ../../../../docker-basics.html
+[part-2]:        using-php-2.html
+[jekyll]:        http://jekyllrb.com
+[jekyll-gh]:     https://github.com/jekyll/jekyll
+[jekyll-help]:   https://github.com/jekyll/jekyll-help
