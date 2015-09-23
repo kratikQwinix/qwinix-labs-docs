@@ -14,11 +14,11 @@ Type this command.
 
 	sudo docker run -d -p 80:80 php_page/v1
 
-<img src="/images/php_docker_run.png"/>
+<img src="/images/docker/php/php_docker_run.png"/>
 
 And you are good to go. Open your browser and go to **http://localhost/index.php**
 
-<img src="/images/php_docker_run-1.png"/>
+<img src="/images/docker/php/php_docker_run-1.png"/>
 
 Congratulations!!
 
