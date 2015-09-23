@@ -50,7 +50,7 @@ Build the image using docker build
 $ sudo docker build -t pruthvik/sinatra .
 {% endhighlight %}
 
-<img src="/images/ruby-sinatra/docker-sinatra-image-build.png">
+<img src="/images/docker/ruby_app/ruby-sinatra/docker-sinatra-image-build.png">
 
 Launch the sinatra container.
 
@@ -64,13 +64,13 @@ Check the port binding of the container using
 $ sudo docker ps
 {% endhighlight %}
 
-<img src="/images/ruby-sinatra/docker-sinatra-dockerps.png">
+<img src="/images/docker/ruby_app/ruby-sinatra/docker-sinatra-dockerps.png">
 
 {% highlight sh %}
 $ curl -i -H 'Accept: application/json' -d 'name=Foo&status=Bar' http://localhost:49160/json
 {% endhighlight %}
 
-<img src="/images/ruby-sinatra/sinatra-app-check.png">
+<img src="/images/docker/ruby_app/ruby-sinatra/sinatra-app-check.png">
 
 <hr>
 
@@ -106,7 +106,7 @@ Build the image using docker build
 $ sudo docker build -t pruthvik/redis .
 {% endhighlight %}
 
-<img src="/images/ruby-sinatra/redis-image-build.png">
+<img src="/images/docker/ruby_app/ruby-sinatra/redis-image-build.png">
 
 Launch the redis container
 
@@ -158,11 +158,11 @@ To check if the application is using the redis db. It can be seen below
 $ curl -i -H 'Accept: application/json' -d 'name=Foo&status=Bar' http://localhost:32789/json
 {% endhighlight %}
 
-<img src="/images/ruby-sinatra/sinatra-app-test.png">
+<img src="/images/docker/ruby_app/ruby-sinatra/sinatra-app-test.png">
 
 {% highlight sh %}
 $ curl -i http://localhost:32789/json
 {% endhighlight %}
 
-<img src="/images/ruby-sinatra/sinatra-redis-check.png">
+<img src="/images/docker/ruby_app/ruby-sinatra/sinatra-redis-check.png">
 

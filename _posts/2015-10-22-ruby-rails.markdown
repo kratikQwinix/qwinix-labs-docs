@@ -23,7 +23,7 @@ Dockerfile for containerizing a **RoR*** app can be written as the following:
 
 <html>
  <body>
-    <img  src="/images/ROR/ROR_Dockerfile.png" width="1000" height="300">
+    <img  src="/images/docker/ruby_app/ROR/ROR_Dockerfile.png" width="1000" height="300">
  </body></html>
 
 
@@ -65,7 +65,7 @@ A **docker-compose.yml** file looks like this:
 
 <html>
  <body>
-    <img  src="/images/ROR/docker-compose.png" width="1000" height="300">
+    <img  src="/images/docker/ruby_app/ROR/docker-compose.png" width="1000" height="300">
  </body></html>
 
 In the **docker_compose.yml** file we specify the configuration of database(**db**)
@@ -98,7 +98,7 @@ This command builds the images and launches the container
 
 <html>
  <body>
-    <img  src="/images/ROR/docker-compose_up.png" width="1000" height="800">
+    <img  src="/images/docker/ruby_app/ROR/docker-compose_up.png" width="1000" height="800">
  </body></html>
 
 We can see that all the instructions specified in the [Dockerfile][d] getting executed in an order.
@@ -107,7 +107,7 @@ We can see that all the instructions specified in the [Dockerfile][d] getting ex
 The **Dockerized Rails App** can be viewed in the browser by typing **localhost:3000** in the browser window.
 <html>
  <body>
-    <img  src="/images/ROR/dockerized.png" width="500" height="300">
+    <img  src="/images/docker/ruby_app/ROR/dockerized.png" width="500" height="300">
  </body></html>
 
 <hr>
