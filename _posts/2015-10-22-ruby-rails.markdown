@@ -1,4 +1,4 @@
-	---
+---
 layout: topics
 title:  "Rails"
 date:   2015-09-17 11:05:32
