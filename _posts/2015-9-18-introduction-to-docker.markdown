@@ -4,23 +4,33 @@ title:  "Introduction to Docker"
 date:   2015-09-17 12:53:32
 categories: docker part-1
 ---
+### Getting started with docker.
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+#### 1. Installation on Ubuntu 14.04.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+There are no prerequistes for Ubuntu 14.04 or later.
 
-Jekyll also offers powerful support for code snippets:
+Check if curl is installed.
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+{% highlight sh %}
+ $ which curl
 {% endhighlight %}
 
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+If curl isn’t installed, install it after updating your manager:
 
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
+{% highlight sh %}
+ $ sudo apt-get update
+ $ sudo apt-get install curl
+{% endhighlight %}
+
+Download the latest docker package.
+
+{% highlight sh %}
+ $ curl -sSL https://get.docker.com/gpg | sudo apt-key add -
+{% endhighlight %}
+
+Verify if docker is installed.
+
+{% highlight sh %}
+ $ sudo docker run hello-world
+{% endhighlight %}
