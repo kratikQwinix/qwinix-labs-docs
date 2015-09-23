@@ -27,20 +27,20 @@ This means that Containers are Isolated processes and for isolation they rely on
 <hr>
 
 #### 1. Namespaces
-  * pid
+  * **pid**
   
   Each container has its own pid number and ps
 
-  * mnt
+  * **mnt**
 
   Mount namespace
 
-  * net
+  * **net**
 
   The network namespace  <br>	
   Each container has its own ip address assigned, own network interface and routing tables.
     
-  * uts
+  * **uts**
 
   Containers have their own uts namespace , each one has a different hostname.
 
@@ -53,12 +53,15 @@ Incharge of accounting and limiting the system resources for containers.
   * **Memory** 
 
 Limits memory for each container.
+  
   * **Cpu** 
 
 Prioritize containers,keep track of system CPU time
+  
   * **blkIO** 
 
 Block IO to keep track of Ios for each block device (limit the amount of data that can be written by the container) 
+  
   * **Devices** 
 
 Controls read/write/mknod permissions
