@@ -23,7 +23,7 @@ Docker calls each of these filesystems images. Images can be layered on top of
  	<title></title>
  </head>
  <body>
-    <img style="padding-left:200px" src="{{site.baseurl}}/images/docker/docker_basics/docker-image.png" width="800" height="300">
+    <img style="padding-left:200px" src="{{site.baseurl}}/images/docker/docker_basics/docker_image.png" width="800" height="300">
  </body>
  </html>
 
