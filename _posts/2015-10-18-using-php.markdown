@@ -1,7 +1,7 @@
 ---
 layout: topics
 title:  "Dockerizing a simple PHP page part-1"
-date:   2015-09-17 12:53:32
+date:   2015-09-17 12:53:34
 categories: docker part-2
 ---
 
