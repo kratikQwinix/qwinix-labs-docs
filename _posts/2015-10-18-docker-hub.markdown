@@ -32,6 +32,9 @@ Docker itself provides access to Docker Hub services via the docker search, pull
 
 
 	$ docker search ubuntu
+	$ docker pull ubuntu
+	$ docker push ubuntu
+	$ docker login
 	
 
 <a href="images.html"><<Images</a> 
