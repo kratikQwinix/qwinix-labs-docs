@@ -148,7 +148,7 @@ $ docker-compose up
 
 This will build the images and launches the containers in the order of *docker-compose.yml* file as seen below.. 
 
-<img  src="{{site.baseurl}}/images/docker/ruby_app/ROR/docker-compose_up.png" width="1000">
+<img  src="{{site.baseurl}}/images/docker/ruby_app/ROR/docker-compose_up.png" style="width:600px">
 
 We can see that all the instructions specified in the [Dockerfile][d] getting executed in an order.
 <hr>
