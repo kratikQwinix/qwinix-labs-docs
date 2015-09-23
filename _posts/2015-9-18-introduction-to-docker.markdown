@@ -1,5 +1,5 @@
 ---
-layout: docker
+layout: topics
 title:  "Introduction to Docker"
 date:   2015-09-17 12:53:32
 categories: docker part-1
