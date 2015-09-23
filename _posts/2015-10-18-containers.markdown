@@ -28,19 +28,21 @@ This means that Containers are Isolated processes and for isolation they rely on
 
 #### 1. Namespaces
   * pid
-Each container has its own pid number and ps
+  
+  Each container has its own pid number and ps
 
   * mnt
 
-	Mount namespace
+  Mount namespace
 
   * net
 
-The network namespace  	
-Each container has its own ip address assigned, own network interface and routing tables.
+  The network namespace  <br>	
+  Each container has its own ip address assigned, own network interface and routing tables.
     
   * uts
-Containers have their own uts namespace , each one has a different hostname.
+
+  Containers have their own uts namespace , each one has a different hostname.
 
 <hr> 
 
@@ -48,14 +50,20 @@ Containers have their own uts namespace , each one has a different hostname.
 
 Incharge of accounting and limiting the system resources for containers.
 
-  * **Memory**
+  * **Memory** 
+
 Limits memory for each container.
-  * **Cpu**
+  * **Cpu** 
+
 Prioritize containers,keep track of system CPU time
-  * **blkIO**
+  * **blkIO** 
+
 Block IO to keep track of Ios for each block device (limit the amount of data that can be written by the container) 
-  * **Devices**
+  * **Devices** 
+
 Controls read/write/mknod permissions
+
+<hr>
 
 ###	RUNNING CONTAINERS
 
@@ -67,17 +75,17 @@ Controls read/write/mknod permissions
   {% endhighlight %}
 
 where,
-	 *my_container*    ->  name of the container
-	 *ubuntu*    	   ->  the image
-     */bin/bash* 	   ->  the command to be executed
+	 *my_container*    ->  name of the container<br>
+	 *ubuntu*    	   ->  the image<br>
+     */bin/bash* 	   ->  the command to be executed<br>
 
 Command line flags that can be used with run command are:
 	
-**-i** for STDIN	
-**-d** to detach and run container in background
-**-t** for pseudo-tty
-**-u** to specify a user the image should be run as
-**-e** to set environment variables during runtime
+**-i** for STDIN<br>	
+**-d** to detach and run container in background<br>
+**-t** for pseudo-tty<br>
+**-u** to specify a user the image should be run as<br>
+**-e** to set environment variables during runtime<br>
 
 <hr>
  Containers can be listed using the 
@@ -97,10 +105,8 @@ Command line flags that can be used with run command are:
  Containers can be stopped using the command
   {% highlight sh %}
   $ docker stop container_id
-  {% endhighlight %}
-   
+  {% endhighlight %} 
 or
-
   {% highlight sh %}
   $ docker kill container_id
   {% endhighlight %}	
