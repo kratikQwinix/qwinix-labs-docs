@@ -5,10 +5,10 @@ date:   2015-09-17 11:05:32
 categories: docker part-3
 ---
 
-A **RoR** app generally involves a database running at the backend which will be accessed by a
-rails application for various **CRUD operations**. So dockerizing a rails app can be done by
+A **RoR** app generally involves a database running at the backend which will be accessed by a rails application for various **CRUD operations**. So dockerizing a rails app can be done by
 linking 2 containers ie., rails app and database running in two separate containers.
-	Dockerizing the RoR app involves the following steps
+
+Dockerizing the RoR app involves the following steps
 
 #### 1.Writing the dockerfile
 
@@ -110,30 +110,49 @@ In the next container **web** the image is not specified unlinke db, but the ima
 
 <hr>
 
-####3. Running the dockerized app
+####3. The database.yml file of the rails application to use postfgres db.
+
+{% highlight ruby %}
+development:
+ adapter: postgresql
+ pool: 5
+ username: postgres
+ password: password
+ database: postgres
+ host: <%= ENV['DB_PORT_5432_TCP_ADDR'] %>
+ port: <%= ENV['DB_PORT_5432_TCP_PORT'] %>
+{% endhighlight %}
+
+ **host: <%= ENV['DB_PORT_5432_TCP_ADDR'] %>**
+ **port: <%= ENV['DB_PORT_5432_TCP_PORT'] %>**
+
+The apllication must be able to access the postgres running in the container db. We can directly use the ip address of the container and the port on which its running directly, but it isn't a good practice because ip address of the container changes everytime the containers is restarted. Hence, its a good practice to use environment variables.
+
+Docker provides with env variables within the container, this can be viewed using the command 
+
+	$ sudo docker-compose run web env
+
+<img src="{{site.baseurl}}images/docker/ruby_app/ROR/rails-docker-compose.png">
+
+####4. Starting the containers.
+
 This is done by using the command 
 
 {% highlight sh %}
 $ sudo docker-compose up
 {% endhighlight %}
 
-This command builds the images and launches the container 
+This will build the images and launches the containers in the order of *docker-compose.yml* file as seen below.. 
 
-
-
-<html>
- <body>
-    <img  src="{{site.baseurl}}/images/docker/ruby_app/ROR/docker-compose_up.png" width="1000">
- </body></html>
+<img  src="{{site.baseurl}}/images/docker/ruby_app/ROR/docker-compose_up.png" width="1000">
 
 We can see that all the instructions specified in the [Dockerfile][d] getting executed in an order.
 <hr>
 
 The **Dockerized Rails App** can be viewed in the browser by typing **localhost:3000** in the browser window.
-<html>
- <body>
-    <img  src="{{site.baseurl}}/images/docker/ruby_app/ROR/dockerized.png" width="500">
- </body></html>
+
+<img  src="{{site.baseurl}}/images/docker/ruby_app/ROR/dockerized.png" >
+
 
 <hr>
 Since we have done data mounting using volumes, the changes in the app can be viewed the localhost by just **refresh**ing the page on the browser.
