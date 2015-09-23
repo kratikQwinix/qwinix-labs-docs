@@ -14,11 +14,11 @@ Navigate to the path where you have created Dockerfile and type this command.
 
 	sudo docker build -t php_page/v1 .
 
-<img src="/images/docker/php/php_docker_build.png"/>
+<img src="{{site.baseurl}}/images/docker/php/php_docker_build.png"/>
 
 The commands will executed. It will take sometime to build.
 
-<img src="/images/docker/php/php_docker_build-1.png"/>
+<img src="{{site.baseurl}}/images/docker/php/php_docker_build-1.png"/>
 
 After build you can see the image with the following command
 
@@ -26,7 +26,7 @@ After build you can see the image with the following command
 
 This lists the docker image.
 
-<img src="/images/docker/php/php_docker_images.png"/>
+<img src="{{site.baseurl}}/images/docker/php/php_docker_images.png"/>
 
 **[Jump To Next Step][part-3]**
 
