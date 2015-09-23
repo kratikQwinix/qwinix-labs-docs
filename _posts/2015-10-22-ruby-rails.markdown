@@ -130,16 +130,20 @@ The apllication must be able to access the postgres running in the container db.
 
 Docker provides with env variables within the container, this can be viewed using the command 
 
-	$ sudo docker-compose run web env
+	$ docker-compose run web env
 
 <img src="{{site.baseurl}}images/docker/ruby_app/ROR/rails-docker-compose.png">
+
+The ENV variables can be copied and listed in the application's database.yml file.
+
+<hr>
 
 ####4. Starting the containers.
 
 This is done by using the command 
 
 {% highlight sh %}
-$ sudo docker-compose up
+$ docker-compose up
 {% endhighlight %}
 
 This will build the images and launches the containers in the order of *docker-compose.yml* file as seen below.. 
@@ -153,8 +157,6 @@ The **Dockerized Rails App** can be viewed in the browser by typing **localhost:
 
 <img  src="{{site.baseurl}}/images/docker/ruby_app/ROR/dockerized.png" >
 
-
-<hr>
 Since we have done data mounting using volumes, the changes in the app can be viewed the localhost by just **refresh**ing the page on the browser.
 
 
