@@ -1,34 +1,9 @@
 ---
 layout: topics
-title:  "Introduction to Docker Images"
-date:   2015-09-17 12:53:30
+title:  "Working with Docker Images"
+date:   2015-09-17 12:53:29
 categories: docker part-1
 ---
-
-A Docker image is made up of filesystems layered over each other. At the base is a boot filesystem, bootfs , which resembles the typical Linux/Unix boot filesystem. A Docker user will probably never interact with the boot filesystem. Indeed, when a container has booted, it is moved into memory, and the boot filesystem is unmounted to free up the RAM used by the initrd disk image.
-
-Docker next layers a root filesystem, rootfs , on top of the boot filesystem. This
- rootfs can be one or more operating systems (e.g., a Debian or Ubuntu filesys-
-tem).In Docker, the rootfs stays in read-only mode and Docker takes advantage of [union mount][un] to add more read-only filesystems on top of rootfs.
-
-Docker calls each of these filesystems images. Images can be layered on top of
- one another. The image below is called the parent image and you can traverse
- each layer until you reach the bottom of the image stack where the final image
- is called the base image. Finally, when a container is launched from an image,
- Docker mounts a read-write filesystem on top of any layers below. This is where
- whatever processes we want our Docker container to run will execute.
- 
-<html>
- <head>
- 	<title></title>
- </head>
- <body>
-    <img style="padding-left:200px" src="{{site.baseurl}}/images/docker/docker_basics/docker_image.png" width="800" height="300">
- </body>
- </html>
-
-<hr>
-
 #### 1.Listing Docker Images
 
 {% highlight sh %}
@@ -37,10 +12,8 @@ $ sudo docker images
 The command lists all the images in the local machine.
  <html>
  <body>
-    <img  src="{{site.baseurl}}/images/docker/docker_basics/docker_images.png" width="1000" height="300">
+    <img  src="/images/docker/docker-images.png" width="1000" height="300">
  </body></html>
-
- <hr>
 
 #### 2.Pulling Docker Images from DOCKER-HUB
 
@@ -51,17 +24,13 @@ $ sudo docker pull ubuntu
 This command pulls the **ubuntu** image from dockerhub
 <html>
  <body>
-    <img  src="{{site.baseurl}}/images/docker/docker_basics/pulling_docker_images.png" height="300">
+    <img  src="/images/docker/pulling-docker-images.png" height="300">
  </body></html>
-
- <hr>
 
 #### 3.Image tags 
 Each image inside the repository is identified by what Docker calls **tags**. Each image is being listed by the tags applied to it, so, for example, **12.04** , **12.10** , **quantal** , or **precise** and so on. Each tag marks together a series of image layers that represent a specific image 
 (e.g., the 12.04 tag collects together all the layers
 of the **Ubuntu 12.04** image). This allows us to store more than one image inside a repository. 
-
-<hr>
 
 #### 4.Running the containers
 {% highlight sh %}
@@ -71,12 +40,10 @@ $ sudo docker run -t -i --name new_container ubuntu /bin/bash
 This command runs the container using ubuntu image and runs the command /bin/bash
 <html>
  <body>
-    <img  src="{{site.baseurl}}/images/docker/docker_basics/running_containers.png" height="300">
+    <img  src="/images/docker/running-containers.png" height="300">
  </body></html>
 
  There are two types of repositories: **user repositories**, which contain images contributed by Docker users, and **top-level repositories**, which are controlled by the people behind Docker.
-
-<hr>
 
 #### 5.Searching images
 {% highlight sh %}
@@ -91,8 +58,6 @@ It’ll search images and return:
   the Fedora team)       
   * Automated - an image built by the Docker Hub’s Automated Build process.
 
-<hr>
-
 #### 6.Pulling a particular image
 {% highlight sh %}
 $ sudo docker pull jamtur01/puppetmaster
@@ -100,21 +65,15 @@ $ sudo docker pull jamtur01/puppetmaster
 
 Pulls jamtur01/puppetmaster image
 
-<hr>
-
 #### 7.Building Docker Images
 We can create our own Docker images using two methods:
 
   * Via the **docker commit** command (**NOT Recommended**)
   * Via the **docker build** command with [Dockerfile][dfile]
 
-
+<a href="images.html"><<Introduction to Docker Images</a> 
+<a style = "float:right" href="docker-hub.html">Dockerhub>></a>
 
 [dh]: https://hub.docker.com/
 [dfile]: dockerfile.html
 
-<a href="containers.html"><<Containers</a> 
-<a style = "float:right" href="docker-hub.html">DockerHub>></a> 
-
-
-[un]: http://www.thegeekstuff.com/2013/05/linux-aufs/ 
