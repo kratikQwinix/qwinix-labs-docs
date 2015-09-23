@@ -36,7 +36,7 @@ Dockerizing a static web page involves
 
 	1. $ sudo docker build -t manamohan/webapp .
 
-<img src="{{site.baseurl}}/images/screenshots_nginx/docker_build.png">
+<img src="{{site.baseurl}}/images/docker/static_webpage/docker_build.png">
 
   This commands builds the image using the dockerfile. All the instructions are exexuted step by step and finally the ID of the image will be created and returned on successfull building of image. 
 
@@ -46,7 +46,7 @@ Dockerizing a static web page involves
 
     $sudo docker images
 
-<img src="{{site.baseurl}}/images/screenshots_nginx/docker_images.png">
+<img src="{{site.baseurl}}/images/docker/static_webpage/docker_images.png">
 
 <hr>
 
@@ -61,8 +61,8 @@ Dockerizing a static web page involves
      -d makes the container to run in detached mode.**
      -v is the flag used to mount volumes to a container.**
 
-<img src="{{site.baseurl}}/images/screenshots_nginx/docker_run.png">
+<img src="{{site.baseurl}}/images/docker/static_webpage/docker_run.png">
 
 2.Run the localhost:80 in the web browser to see the containerized webpage which is present	in static_web folder.
 
-<img src="{{site.baseurl}}/images/screenshots_nginx/docker_nginx_output.png">
+<img src="{{site.baseurl}}/images/docker/static_webpage/docker_nginx_output.png">
