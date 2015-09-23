@@ -5,10 +5,10 @@ date:   2015-09-17 11:05:32
 categories: docker part-3
 ---
 
-A **RoR** app generally involves a database running at the backend which will be accessed by a
-rails application for various **CRUD operations**. So dockerizing a rails app can be done by
+A **RoR** app generally involves a database running at the backend which will be accessed by a rails application for various **CRUD operations**. So dockerizing a rails app can be done by
 linking 2 containers ie., rails app and database running in two separate containers.
-	Dockerizing the RoR app involves the following steps
+
+Dockerizing the RoR app involves the following steps
 
 #### 1.Writing the dockerfile
 
@@ -21,31 +21,40 @@ linking 2 containers ie., rails app and database running in two separate contain
 #### 1.The DockerFile
 Dockerfile for containerizing a **RoR*** app can be written as the following:
 
-<html>
- <body>
-    <img  src="{{site.baseurl}}/images/docker/ruby_app/ROR/ROR_Dockerfile.png" width="1000" height="300">
- </body></html>
+		FROM ruby
+		RUN apt-get update -qq && apt-get install -y build-essential
+		RUN apt-get install -y libpq-dev
+		RUN apt-get install -y libxml2-dev libxslt1-dev nodejs
+		 
+		ENV APP_HOME /app/test_app
+		RUN mkdir -p $APP_HOME
+		WORKDIR $APP_HOME
+
+		ADD Gemfile* $APP_HOME/
+		RUN bundle install
+
+		ADD . $APP_HOME
 
 
 **line1**: Uses the ruby:latest image as the base image
 
 **line2**:Updates the ubuntu packages(-qq  :logs only when there is an error, -y : selects yes for confirmation)
 
-**line3**:Installs rails
+**line3**:Installs postgres
 
 **line4**:Installs nodejs
 
-**line5**:creates a directory app/v1
+**line5**:creates a directory app/test_app
 
-**line6**: setting environment variable LOC to app/v1
+**line6**: setting environment variable APP_HOME to app/test_app
 
-**line7**:sets LOC as Working directory
+**line7**:sets APP_HOME as Working directory
 
-**line8**:Adds all the gemfiles to LOC
+**line8**:Adds all the gemfiles to APP_HOME
 
 **line9**:Runs bundle install
 
-**line10**: Adds everything to LOC
+**line10**: Adds everything to APP_HOME
 
 <hr>
 
@@ -63,67 +72,92 @@ Using Compose is basically a three-step process.
 
 A **docker-compose.yml** file looks like this:
 
-<html>
- <body>
-    <img  src="{{site.baseurl}}/images/docker/ruby_app/ROR/docker-compose.png" width="1000" height="300">
- </body></html>
+{% highlight ruby %}
+db:
+  image: postgres
+  ports:
+    - "5432:5432"
 
-In the **docker_compose.yml** file we specify the configuration of database(**db**)
-### **This file follows strict indentation** 
+web:
+  build: .
+  command: bin/rails server --port 3000 --binding 0.0.0.0
+  ports:
+    - "3000:3000"
+  links:
+    - db
+  volumes:
+    - /home/lucifer/rails_apps/test_app:/app/test_app
+{% endhighlight %}
 
-The database used for this app is **postgres** which we specify as the base image and also on which port it should run.
+In the **docker-compose.yml** file we specify the containers that need to be running for the whole application.
+#### **This file follows strict indentation** 
 
-In the next section( **web**) we specify what all actions to take place when the container is launched.
+The first container **db** used for this app uses the **postgres** image and ports are exposed as 5432 in the container bound to 5432 on localhost.
 
-**build:** builds image
+In the next container **web** the image is not specified unlinke db, but the image is built using a *Dockerfile*.
 
-**command:** specifies the command to be executed on running the conatiner
+**image:** image used to run in the container.
 
-**ports:** specify the ports
+**build:** build the image.
 
-**volume:** loads host directory as a volume on to the container
+**command:** specifies the command to be executed on running the conatiner.
 
-**links:** links the container
+**ports:** specifies port binding.
+
+**volume:** mounts host directory as a volume on to the container.
+
+**links:** links the containers.
 
 <hr>
 
-####3.Running the dockerized app
+####3. The database.yml file of the rails application to use postfgres db.
+
+{% highlight ruby %}
+development:
+ adapter: postgresql
+ pool: 5
+ username: postgres
+ password: password
+ database: postgres
+ host: <%= ENV['DB_PORT_5432_TCP_ADDR'] %>
+ port: <%= ENV['DB_PORT_5432_TCP_PORT'] %>
+{% endhighlight %}
+
+ **host: <%= ENV['DB_PORT_5432_TCP_ADDR'] %>**
+ **port: <%= ENV['DB_PORT_5432_TCP_PORT'] %>**
+
+The apllication must be able to access the postgres running in the container db. We can directly use the ip address of the container and the port on which its running directly, but it isn't a good practice because ip address of the container changes everytime the containers is restarted. Hence, its a good practice to use environment variables.
+
+Docker provides with env variables within the container, this can be viewed using the command 
+
+	$ docker-compose run web env
+
+<img src="{{site.baseurl}}images/docker/ruby_app/ROR/rails-docker-compose.png">
+
+The ENV variables can be copied and listed in the application's database.yml file.
+
+<hr>
+
+####4. Starting the containers.
+
 This is done by using the command 
 
 {% highlight sh %}
 $ docker-compose up
 {% endhighlight %}
 
-This command builds the images and launches the container 
+This will build the images and launches the containers in the order of *docker-compose.yml* file as seen below.. 
 
-<html>
- <body>
-    <img  src="{{site.baseurl}}/images/docker/ruby_app/ROR/docker-compose_up.png" width="1000" height="800">
- </body></html>
+<img  src="{{site.baseurl}}/images/docker/ruby_app/ROR/docker-compose_up.png" style="width:827px">
 
 We can see that all the instructions specified in the [Dockerfile][d] getting executed in an order.
 <hr>
 
 The **Dockerized Rails App** can be viewed in the browser by typing **localhost:3000** in the browser window.
-<html>
- <body>
-    <img  src="{{site.baseurl}}/images/docker/ruby_app/ROR/dockerized.png" width="500" height="300">
- </body></html>
 
-<hr>
+<img  src="{{site.baseurl}}/images/docker/ruby_app/ROR/dockerized.png" >
+
 Since we have done data mounting using volumes, the changes in the app can be viewed the localhost by just **refresh**ing the page on the browser.
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 [dofi]: dockerfile.html
