@@ -264,5 +264,5 @@ Example:
 
 
 
-<a href="{{site.baseurl}}docker/docker-hub.html"><<Dockerhub</a> 
+<a href="{{site.baseurl}}docker-hub.html"><<Dockerhub</a> 
 
