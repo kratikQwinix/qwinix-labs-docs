@@ -23,7 +23,7 @@ Docker calls each of these filesystems images. Images can be layered on top of
  	<title></title>
  </head>
  <body>
-    <img style="padding-left:200px" src="/images/docker/docker-image.png" width="800" height="300">
+    <img style="padding-left:200px" src="{{site.baseurl}}/images/docker/docker_basics/docker_image.png" width="800" height="300">
  </body>
  </html>
 
@@ -37,7 +37,7 @@ $ sudo docker images
 The command lists all the images in the local machine.
  <html>
  <body>
-    <img  src="/images/docker/docker-images.png" width="1000" height="300">
+    <img  src="{{site.baseurl}}/images/docker/docker_basics/docker_images.png" width="1000" height="300">
  </body></html>
 
  <hr>
@@ -51,7 +51,7 @@ $ sudo docker pull ubuntu
 This command pulls the **ubuntu** image from dockerhub
 <html>
  <body>
-    <img  src="/images/docker/pulling-docker-images.png" height="300">
+    <img  src="{{site.baseurl}}/images/docker/docker_basics/pulling_docker_images.png" height="300">
  </body></html>
 
  <hr>
@@ -71,7 +71,7 @@ $ sudo docker run -t -i --name new_container ubuntu /bin/bash
 This command runs the container using ubuntu image and runs the command /bin/bash
 <html>
  <body>
-    <img  src="/images/docker/running-containers.png" height="300">
+    <img  src="{{site.baseurl}}/images/docker/docker_basics/running_containers.png" height="300">
  </body></html>
 
  There are two types of repositories: **user repositories**, which contain images contributed by Docker users, and **top-level repositories**, which are controlled by the people behind Docker.
