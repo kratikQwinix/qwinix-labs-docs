@@ -45,7 +45,8 @@ Containers have their own uts namespace , each one has a different hostname.
 <hr> 
 
 #### 2. ControlGroups
-	Incharge of accounting and limiting the system resources for containers.
+
+Incharge of accounting and limiting the system resources for containers.
 
   * **Memory**
 Limits memory for each container.
@@ -72,11 +73,11 @@ where,
 
 Command line flags that can be used with run command are:
 	
-	**-i** for STDIN	
-	**-d** to detach and run container in backgroun
-	**-t** for pseudo-tty
-    **-u** to specify a user the image should be run as
-	**-e** to set environment variables during runtime
+**-i** for STDIN	
+**-d** to detach and run container in background
+**-t** for pseudo-tty
+**-u** to specify a user the image should be run as
+**-e** to set environment variables during runtime
 
 <hr>
  Containers can be listed using the 
@@ -85,7 +86,7 @@ Command line flags that can be used with run command are:
   $ docker ps 
   {% endhighlight %}
  
- command lists the running containers, and -a can be used to list all containers and -q to return container Ids.
+ command which lists the running containers and -a can be used to list all containers and -q to return container Ids as shown below.
 
 {% highlight sh %}
   $ docker ps -a -q
@@ -98,12 +99,13 @@ Command line flags that can be used with run command are:
   $ docker stop container_id
   {% endhighlight %}
    
-	or
-	{% highlight sh %}
+or
+
+  {% highlight sh %}
   $ docker kill container_id
   {% endhighlight %}	
 
-<hr>
+
 
 *container_name can be used instead of container_id as well.
   
@@ -119,7 +121,7 @@ Command line flags that can be used with run command are:
 
 <hr>  
 
- Container details 
+ Container details such as id, network settings, mounts, volumes etc can be retrieved using the following command
  {% highlight sh %}
   $ docker inspect container_id 
   {% endhighlight %}
