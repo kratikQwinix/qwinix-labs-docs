@@ -5,22 +5,23 @@ date:   2015-09-17 12:53:32
 categories: docker part-4
 ---
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+### Writing a Dockerfile
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+	FROM linuxconfig/apache
+	EXPOSE 80
+	RUN mkdir -p /var/www/html
+	ADD . /var/www/html
+	CMD ["apache2ctl" ,"-D", "FOREGROUND"]
 
-Jekyll also offers powerful support for code snippets:
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+<hr>
 
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+### Building an image using Dockerfile
 
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
+	docker build -t kratiknayak/apache .
+
+<hr>
+
+### Running the image in a conatiner
+
+	docker run -d -p 80 -v $PWD/html:/var/www/html kratiknayak/apache
