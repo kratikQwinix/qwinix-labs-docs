@@ -3,6 +3,8 @@ layout: topics
 title:  "Rails"
 date:   2015-09-17 11:05:32
 categories: docker part-3
+header-logo: docker
+suburl: docker
 ---
 
 A **RoR** app generally involves a database running at the backend which will be accessed by a rails application for various **CRUD operations**. So dockerizing a rails app can be done by
