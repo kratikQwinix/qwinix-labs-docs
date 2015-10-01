@@ -1,10 +1,9 @@
 ---
-layout: topics
+layout: post
 title:  "Installing ASP.NET 5 On Mac OS X"
 date:   2015-09-30 12:30:00
 categories: dotnet dotnet-setup
-header-logo: dotnet
-suburl: dotnet
+topic: dotnet
 ---
 
 ## Installing ASP.NET 5 On Mac OS X

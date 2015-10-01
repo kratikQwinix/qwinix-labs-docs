@@ -1,10 +1,9 @@
 ---
-layout: topics
+layout: post
 title:  "Dockerfile"
 date:   2015-09-17 12:53:28
 categories: docker part-1
-header-logo: docker
-suburl: docker
+topic: docker
 ---
 
 ### Dockerfile

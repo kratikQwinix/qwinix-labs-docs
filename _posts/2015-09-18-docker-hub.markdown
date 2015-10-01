@@ -1,10 +1,9 @@
 ---
-layout: topics
+layout: post
 title:  "Docker Hub"
 date:   2015-09-17 12:53:29
 categories: docker part-1
-header-logo: docker
-suburl: docker
+topic: docker
 ---
 
 ### Docker Hub

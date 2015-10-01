@@ -1,10 +1,9 @@
 ---
-layout: topics
+layout: post
 title:  "Install Visual Studio Code on Mac OSx"
 date:   2015-09-29 16:30:00
 categories: dotnet dotnet-setup
-header-logo: dotnet
-suburl: dotnet
+topic: dotnet
 ---
 
 # Install Visual Studio Code on Mac OSx
