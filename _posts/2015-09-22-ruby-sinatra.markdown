@@ -3,6 +3,8 @@ layout: topics
 title:  "Sinatra"
 date:   2015-09-22 12:00:32
 categories: docker part-3
+header-logo: docker
+suburl: docker
 ---
 ###Dockerise a Sinatra Application
 

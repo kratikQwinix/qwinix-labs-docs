@@ -3,14 +3,13 @@
   <div class="wrapper">
    <div class="row" style="background-color: transparent;">
         <div class="col-md-10">
-        <a href="{{site.baseurl}}"><img src="{{site.baseurl}}/images/qlabslogo-color-new.png"></a>
+        <a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/images/qlabslogo-color-new.png"></a>
         </div>
         <div class="col-md-2" >
-        <a href="{{site.baseurl}}/docker"><img src="{{site.baseurl}}/images/docker/docker-header-logo.png" style=" width: 80px"></a>
+        <a href="{{site.baseurl}}/{% if page.suburl %}{{ page.suburl }}{% else %}{% endif %}"><img src="{{site.baseurl}}/images/{% if page.header-logo %}{{ page.header-logo }}{% else %}defaults{% endif %}/header-logo.png" style=" width: 80px"></a>
         </div>
      <nav class="site-nav">
-
-<!--       <div class="trigger">
+      <!-- <div class="trigger">
         {% for page in site.pages %}
           {% if page.title %}
           <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
