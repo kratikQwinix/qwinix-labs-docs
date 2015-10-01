@@ -1,8 +1,9 @@
 ---
-layout: topics
+layout: post
 title:  "Introduction to Docker Images"
 date:   2015-09-17 12:53:30
 categories: docker part-1
+topic: docker
 ---
 
 A Docker image is made up of filesystems layered over each other. At the base is a boot filesystem, bootfs , which resembles the typical Linux/Unix boot filesystem. A Docker user will probably never interact with the boot filesystem. Indeed, when a container has booted, it is moved into memory, and the boot filesystem is unmounted to free up the RAM used by the initrd disk image.

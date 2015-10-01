@@ -1,8 +1,9 @@
 ---
-layout: topics
+layout: post
 title:  "Dockerizing a simple PHP page part-1"
 date:   2015-09-17 12:53:34
 categories: docker part-2
+topic: docker
 ---
 
 Before proceeding further you are expected to know the basics of docker

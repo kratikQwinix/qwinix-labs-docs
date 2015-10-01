@@ -1,8 +1,9 @@
 ---
-layout: topics
+layout: post
 title:  "Using Apache"
 date:   2015-09-17 12:53:32
 categories: docker part-4
+topic: docker
 ---
 
 ### Writing a Dockerfile

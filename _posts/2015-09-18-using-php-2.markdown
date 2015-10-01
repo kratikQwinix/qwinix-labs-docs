@@ -1,8 +1,9 @@
 ---
-layout: topics
+layout: post
 title:  "Dockerizing a simple PHP page part-2"
 date:   2015-09-17 12:53:33
 categories: docker part-2
+topic: docker
 ---
 Please go through the Part-1 before you proceed with Part-2
 

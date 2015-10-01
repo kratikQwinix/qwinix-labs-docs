@@ -1,8 +1,9 @@
 ---
-layout: topics
+layout: post
 title:  "Sinatra"
 date:   2015-09-22 12:00:32
 categories: docker part-3
+topic: docker
 ---
 ###Dockerise a Sinatra Application
 
