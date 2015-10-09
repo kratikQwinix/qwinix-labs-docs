@@ -8,11 +8,17 @@ topic: jenkins
 
 ## Plugins
 
-<hr>
+While running jenkins on the machine we can notice that we cannot run the builds as it is, yet. We need to install the respective plugins in order to avail the features which we will be using in the build.
 
+The simplest way to install the plugins is by going to your installation's management screen and clicking Manage Plugins and go to the Available tab. 
 
+<img src="{{site.baseurl}}/images/jenkins/plugins/jenkins-plugin.png"/>
 
+You'll find the plugin you'd like to install, select the checkbox, and then either attempt to Install without restart or Download now and install after restart.
 
-<hr>
+<img src="{{site.baseurl}}/images/jenkins/plugins/jenkins-plugin-1.png"/>
 
+The web interface will then download *.hpi files from here. If you Install without restart the interface will show you progress and provide the results of the install.
+
+Sometimes when you install, you will notice that the list of available plugins is empty. If that is the case, from Advanced tab on the Manage Plugins page, click on Check now (button available in the bottom right of the page) to forcefully check for new updates. Once that is done, you should see the list of plugins.
 
