@@ -42,7 +42,7 @@ Select **Execute shell** to do your build using a shell script
 When a Jenkins job executes, it sets some environment variables that you may use in your shell script or batch command. The following table contains a list of all of these environment variables.
 
 | ENVIRONMENT VARIABLES |                                                MEANING |
-|-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | BUILD_NUMBER | The current build number, such as "153" |
 | BUILD_ID | The current build id, such as "2005-08-22_23-59-59" (YYYY-MM-DD_hh-mm-ss) |
 | BUILD_URL | The URL where the results of this build can be found (e.g. http://buildserver/jenkins/job/MyJobName/666/) |
@@ -56,9 +56,7 @@ When a Jenkins job executes, it sets some environment variables that you may use
 | GIT_URL | For Git-based projects, this variable contains the Git url (like git@github.com:user/repo.git or [https://github.com/user/repo.git)] |                                                                                      |
 
 
-|00|01|
-|--|--|
-|10|11|
+
 <hr>
 
 
