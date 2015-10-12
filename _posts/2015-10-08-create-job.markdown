@@ -54,6 +54,12 @@ When a Jenkins job executes, it sets some environment variables that you may use
 | WORKSPACE | The absolute path of the workspace. |
 | GIT_COMMIT | For Git-based projects, this variable contains the Git hash of the commit checked out for the build (like ce9a3c1404e8c91be604088670e93434c4253f03),(all the GIT_* variables require git plugin) |
 | GIT_URL | For Git-based projects, this variable contains the Git url (like git@github.com:user/repo.git or [https://github.com/user/repo.git)] |                                                                                      |
+
+
+|00|01|
+|--|--|
+|10|11|
 <hr>
+
 
 
