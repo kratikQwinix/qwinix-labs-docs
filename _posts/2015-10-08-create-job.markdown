@@ -67,6 +67,12 @@ When a Jenkins job executes, it sets some environment variables that you may use
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 
+
+
+<hr>
+
+Add a Post-Build action to publish test reports in xml or send e-mails after the build is complete.
+
 <hr>
 
 
