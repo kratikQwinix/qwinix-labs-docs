@@ -28,3 +28,5 @@ topic: jenkins
 	$java -jar jenkins.war --httpPort=$HTTP_PORT
 
 
+<a style="float:right" href="{{ post.url | prepend: site.baseurl }}">{{ post.Installing plugins in Jenkins}}> Plugins </a>
+
