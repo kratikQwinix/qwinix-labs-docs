@@ -28,5 +28,5 @@ topic: jenkins
 	$java -jar jenkins.war --httpPort=$HTTP_PORT
 
 
-<a style="float:right" href="{{ post.url | prepend: site.baseurl }}jenkins/2015/10/07/plugins.html"> Plugins</a>
+<a style="float:right" href="{{ post.url | prepend: site.baseurl }}jenkins/2015/10/07/plugins.html"> >Plugins</a>
 
