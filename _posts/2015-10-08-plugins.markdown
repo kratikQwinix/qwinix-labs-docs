@@ -22,3 +22,6 @@ The web interface will then download *.hpi files from here. If you Install witho
 
 Sometimes when you install, you will notice that the list of available plugins is empty. If that is the case, from Advanced tab on the Manage Plugins page, click on Check now (button available in the bottom right of the page) to forcefully check for new updates. Once that is done, you should see the list of plugins.
 
+<a style="float:left" href="{{ post.url | prepend: site.baseurl }}jenkins/2015/10/07/install-and-run.html"> Install and run</a>
+
+<a style="float:right" href="{{ post.url | prepend: site.baseurl }}jenkins/2015/10/07/create-job.html"> Create a job</a>

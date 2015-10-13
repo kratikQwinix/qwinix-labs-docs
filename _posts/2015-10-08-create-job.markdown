@@ -62,4 +62,5 @@ Add a **Post-Build action** to publish test reports in xml or send e-mails after
 
 <hr>
 
+<a style="float:left" href="{{ post.url | prepend: site.baseurl }}jenkins/2015/10/07/plugins.html"> Plugins</a>
 
