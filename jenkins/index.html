@@ -29,20 +29,20 @@ layout: default
       <center><img src="{{site.baseurl}}/images/jenkins/logo.png" class="img-responsive" alt="Docker" style="width: 200px" /></center>
     </div>
   </div>
+  
 
+ 
   <div class="row" style="margin-top:40px;">
+
 		<div class="col-sm-6">
       <!-- Install and Run -->
-  		<a class="post-link" href="{{site.baseurl}}jenkins/install-and-run.html">Install and Run</a>
-
-      <!-- Jenkins plugins -->
-  		<a class="post-link" href="{{site.baseurl}}jenkins/plugins.html">Plugins</a>
-
-  		<!-- create a job  -->
-  		<a class="post-link" href="{{site.baseurl}}jenkins/create-job.html">Create Job </a>
-
-  		<!--Build a job  -->
-  		<a class="post-link" href="{{site.baseurl}}jenkins/build.html">Build</a>
+      <div class="col-md-2">
+          <div class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</div>
+      </div>
+    {% for post in site.categories.jenkins %}
+        		<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    {% endfor %}
+  	
 
     </div>
 	</div>

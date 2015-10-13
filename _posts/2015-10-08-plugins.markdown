@@ -2,7 +2,7 @@
 layout: post
 title:  "Installing plugins in Jenkins"
 date:   2015-10-07 12:29:00
-categories: jenkins-plugins
+categories: jenkins
 topic: jenkins
 ---
 
