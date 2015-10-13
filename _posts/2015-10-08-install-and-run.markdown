@@ -4,6 +4,7 @@ title:  "Installing Jenkins"
 date:   2015-10-07 12:30:00
 categories: jenkins
 topic: jenkins
+permalink: jenkins/2015/10/08/plugins.markdown
 ---
 
 ## Install and Run
@@ -28,5 +29,5 @@ topic: jenkins
 	$java -jar jenkins.war --httpPort=$HTTP_PORT
 
 
-<a style="float:right" href="2015-10-08-plugins.markdown"> Plugins </a>
+<a style="float:right" href="/:jenkins/:2015/:10/:08/:plugins.markdown"> Plugins </a>
 
